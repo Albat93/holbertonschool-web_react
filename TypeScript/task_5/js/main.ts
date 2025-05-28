@@ -1,36 +1,44 @@
-// Interface MajorCredits
+// =======================
+// Tâche 10 : Nominal Typing & Branding
+// =======================
+
+// Interface pour MajorCredits
 interface MajorCredits {
   credits: number;
-  __brand: 'MajorCredits';
+  readonly __brand: 'major'; // propriété unique de branding
 }
 
-// Interface MinorCredits
+// Interface pour MinorCredits
 interface MinorCredits {
   credits: number;
-  __brand: 'MinorCredits';
+  readonly __brand: 'minor'; // propriété unique de branding
 }
 
-// Fonction pour additionner les MajorCredits
+// Fonction pour additionner deux MajorCredits
 function sumMajorCredits(subject1: MajorCredits, subject2: MajorCredits): MajorCredits {
   return {
     credits: subject1.credits + subject2.credits,
-    __brand: 'MajorCredits',
+    __brand: 'major',
   };
 }
 
-// Fonction pour additionner les MinorCredits
+// Fonction pour additionner deux MinorCredits
 function sumMinorCredits(subject1: MinorCredits, subject2: MinorCredits): MinorCredits {
   return {
     credits: subject1.credits + subject2.credits,
-    __brand: 'MinorCredits',
+    __brand: 'minor',
   };
 }
 
-// // Exemple d'utilisation (optionnel)
-// const major1: MajorCredits = { credits: 3, __brand: 'MajorCredits' };
-// const major2: MajorCredits = { credits: 4, __brand: 'MajorCredits' };
-// console.log(sumMajorCredits(major1, major2)); // { credits: 7, __brand: 'MajorCredits' }
+// =======================
+// Exemple d'utilisation
+// =======================
 
-// const minor1: MinorCredits = { credits: 1, __brand: 'MinorCredits' };
-// const minor2: MinorCredits = { credits: 2, __brand: 'MinorCredits' };
-// console.log(sumMinorCredits(minor1, minor2)); // { credits: 3, __brand: 'MinorCredits' }
+const major1: MajorCredits = { credits: 3, __brand: 'major' };
+const major2: MajorCredits = { credits: 4, __brand: 'major' };
+
+const minor1: MinorCredits = { credits: 1, __brand: 'minor' };
+const minor2: MinorCredits = { credits: 2, __brand: 'minor' };
+
+console.log('Total Major:', sumMajorCredits(major1, major2)); // { credits: 7, __brand: 'major' }
+console.log('Total Minor:', sumMinorCredits(minor1, minor2)); // { credits: 3, __brand: 'minor' }
